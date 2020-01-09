@@ -1,0 +1,6 @@
+export(echelon,echepoi,echebin)
+importFrom("grDevices", "dev.new", "dev.prev", "dev.set", "recordPlot",
+             "replayPlot")
+importFrom("graphics", "abline", "axis", "legend", "lines", "par",
+             "plot", "points", "text")
+importFrom("stats", "median", "quantile", "rmultinom")
