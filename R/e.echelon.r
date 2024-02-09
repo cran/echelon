@@ -69,7 +69,6 @@ echelon<-function(x,nb,dendrogram=TRUE,name=NULL,
 	peaks<-e.result$peaks
 	separates<-e.result$separates
 	c_separates<-c(0,cumsum(separates))
-	number<-e.result$number
 	parents<-e.result$parents
 	tops<-e.result$tops
 	bottoms<-e.result$bottoms

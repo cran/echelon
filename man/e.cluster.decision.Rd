@@ -13,9 +13,9 @@ e.cluster.decision(reg_data, log.lambda)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{reg_data}{
-%%     ~~Describe \code{reg_data} here~~
+ .
 }
   \item{log.lambda}{
-%%     ~~Describe \code{log.lambda} here~~
+ .
 }
 }

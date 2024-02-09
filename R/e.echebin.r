@@ -11,7 +11,7 @@ echebin<-function(echelon.obj,cas,ctl,K=length(cas)/2,n.sim=99,
 ### Check of echelon class ###
 ##############################
 
-	if(class(echelon.obj) != "echelon")
+	if(!inherits(echelon.obj, what="echelon"))
 		stop(paste("The class 'echelon' is incorrect\n\n"))
 
 	x <- echelon.obj$x
@@ -152,9 +152,9 @@ echebin<-function(echelon.obj,cas,ctl,K=length(cas)/2,n.sim=99,
 	if(n.sim != 0){
 		cat(paste("\n Monte Carlo rank ........: ",p_rank[1],"/",n.sim+1,"",sep=""))
 		cat(paste("\n P-value .................: ",p_rank[1]/(n.sim+1),"",sep=""))
-		cat("\n\n")
 		MLC <- c(MLC,list(p=p_rank[1]/(n.sim+1)))
 	}
+	cat("\n\n")
 	clusters <- MLC
 
 	if(cluster.info) cat("----------------------------------------------\n")

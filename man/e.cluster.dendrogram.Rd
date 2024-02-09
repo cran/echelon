@@ -13,21 +13,21 @@ e.cluster.dendrogram(echelon.obj, n.sim, cluster.legend.pos, cluster_reg, p_rank
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{echelon.obj}{
-%%     ~~Describe \code{echelon.obj} here~~
+.
 }
   \item{n.sim}{
-%%     ~~Describe \code{n.sim} here~~
+.
 }
   \item{cluster.legend.pos}{
-%%     ~~Describe \code{cluster.legend.pos} here~~
+.
 }
   \item{cluster_reg}{
-%%     ~~Describe \code{cluster_reg} here~~
+.
 }
   \item{p_rank}{
-%%     ~~Describe \code{p_rank} here~~
+.
 }
   \item{para}{
-%%     ~~Describe \code{para} here~~
+.
 }
 }

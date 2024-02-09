@@ -13,12 +13,12 @@ e.profile(peaks, parents, separates)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{peaks}{
-%%     ~~Describe \code{peaks} here~~
+.
 }
   \item{parents}{
-%%     ~~Describe \code{parents} here~~
+.
 }
   \item{separates}{
-%%     ~~Describe \code{separates} here~~
+.
 }
 }

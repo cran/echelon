@@ -13,12 +13,12 @@ e.main(x, rin, T)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-%%     ~~Describe \code{x} here~~
+.
 }
   \item{rin}{
-%%     ~~Describe \code{rin} here~~
+.
 }
   \item{T}{
-%%     ~~Describe \code{T} here~~
+.
 }
 }

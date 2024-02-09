@@ -5,6 +5,7 @@
 e.scan.pop <- function(x,locs,peaks,c_separates,parents,K,pop){
 
 	e_num <- 1
+	reg_data <- NULL
 	Kout <- 0
 	ng <- sum(pop)
 
@@ -39,7 +40,7 @@ e.scan.pop <- function(x,locs,peaks,c_separates,parents,K,pop){
 					temp <- temp[-del_tie,,drop=FALSE]
 				}
 
-				if(e_num == 1){
+				if(is.null(reg_data)){
 					reg_data <- temp
 					reg_data_col <- ncol(reg_data)
 				}
