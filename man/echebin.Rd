@@ -5,46 +5,47 @@
 Echelon spatial scan statistic based on Binomial model
 }
 \description{
-\code{echebin} detects spatial clusters using echelon spatial scan statistic based on Binomial model.
+The \code{echebin} function detects spatial clusters using the echelon spatial scan statistic with a Binomial model.
 }
 \usage{
-echebin(echelon.obj, cas, ctl, K = length(cas)/2, n.sim = 99,
+echebin(echelon.obj, cas, ctl, K = length(cas)/2, Kmin = 1, n.sim = 99,
         cluster.type = "high", cluster.legend.pos = "bottomleft",
         dendrogram = TRUE, cluster.info = FALSE, coo = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{echelon.obj}{
-An object of class \code{echelon}. See \code{\link{echelon}}.
+An object of class \code{echelon}. For details, see \code{\link{echelon}}.
 }
   \item{cas}{
-A numeric (integer) vector of case counts.
-\code{NA}s are not allowed.
+A numeric (integer) vector of case counts. \code{NA} values are not allowed.
 }
   \item{ctl}{
-A numeric (integer) vector for control counts.
-\code{NA}s are not allowed.
+A numeric (integer) vector of control counts. \code{NA} values are not allowed.
 }
   \item{K}{
-Maximum cluster size. if \code{K} >= 1 (integer), the cluster size is limit to less than or equal to number of regions \code{K}. On the other hand, if 0 < \code{K} < 1, the cluster size is limit to less than or equal to \code{K *} 100\% of the total population.
+Maximum cluster size. If \code{K} >= 1 (integer), the cluster size is limited to \code{K} regions. If 0 < \code{K} < 1, the cluster size is limited to \code{K} * 100\% of the total population.
+}
+  \item{Kmin}{
+Minimum cluster size. 
 }
   \item{n.sim}{
-Number of Monte Carlo replications used for significance testing of detected clusters. If 0, the significance is not assessed.
+The number of Monte Carlo replications used for significance testing of detected clusters. If set to 0, significance is not assessed.
 }
   \item{cluster.type}{
-A character string specifying the cluster type. If \code{"high"}, the detected clusters have high rates (hotspot clusters). On the other hand, If \code{"low"}, the detected clusters have low rates (coldspot cluster).
+A character string specifying the cluster type. If \code{"high"}, the detected clusters have high rates (hotspot). If \code{"low"}, the detected clusters have low rates (coldspot).
 }
   \item{cluster.legend.pos}{
-A location of the legend on the dendrogram. (See the help for \code{\link{legend}})
+The location of the legend on the dendrogram. (See \code{\link{legend}} for details.)
 }
   \item{dendrogram}{
-Logical. if TRUE, draw an echelon dendrogram with detected clusters.
+Logical. If TRUE, draws an echelon dendrogram with the detected clusters.
 }
   \item{cluster.info}{
-Logical. if TRUE, return the result of echelon scan statistic.
+Logical. If TRUE, returns detailed results of the detected clusters.
 }
   \item{coo}{
-An array of the (x,y)-coordinates of the region centroid to draw a cluster map.
+An array of (x, y) coordinates for the region centroids to plot a cluster map.
 }
   \item{\dots}{
 Related to dendrogram drawing. (See the help for \code{\link{echelon}})
@@ -67,9 +68,9 @@ Related to dendrogram drawing. (See the help for \code{\link{echelon}})
 Fumio Ishioka
 }
 \note{
-\code{echebin} requires either \code{cas} and \code{ctl}.
+The function \code{echebin} requires either \code{cas} or \code{ctl}.
 
-Population is defined by the sum of \code{cas} and \code{ctl}.
+Population is defined as the sum of \code{cas} and \code{ctl}.
 
 Typical values of \code{n.sim} are 99, 999, 9999, ...
 }
@@ -81,6 +82,7 @@ Typical values of \code{n.sim} are 99, 999, 9999, ...
 
 \code{\link{echepoi}} for cluster detection based on echelons using Poisson model.
 }
+
 \examples{
 ##Hotspot detection for non-white birth of North Carolina using echelon scan
 

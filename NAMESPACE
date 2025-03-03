@@ -1,4 +1,6 @@
-export(echelon,echepoi,echebin)
+useDynLib(echelon, .registration = TRUE)
+export(echelon, echepoi, echebin)
+importFrom("Rcpp", "sourceCpp")
 importFrom("grDevices", "dev.new", "dev.prev", "dev.set", "recordPlot",
              "replayPlot")
 importFrom("graphics", "abline", "axis", "legend", "lines", "par",

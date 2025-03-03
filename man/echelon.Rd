@@ -6,7 +6,7 @@
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-\code{echelon} divides study area into structural entities consisting of peaks or foundations, say \emph{'echelons'}, based on neighbor information, and draw its dendrogram.
+The \code{echelon} function divides the study area into structural entities, called \emph{'echelons'}, based on neighbor information and draws a dendrogram.
 }
 \usage{
 echelon(x, nb, dendrogram = TRUE, name = NULL,
@@ -14,78 +14,78 @@ echelon(x, nb, dendrogram = TRUE, name = NULL,
       xaxes = FALSE, xdper = c(0, 1), dmai = NULL,
       col = 1, lwd = 1, symbols = 4, cex.symbols = 1, col.symbols = 4,
       ens = TRUE, adj.ens = 1, cex.ens = 0.8, col.ens = 1,
-      profiles = FALSE)
+      profiles = FALSE, nb.check = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-A numeric vector of data values.}
+A numeric vector containing data values.}
   \item{nb}{
-Neighbor information data. An object of class \code{nb} or a weights matrix.
+Neighbor information data: an object of class \code{nb} or a weights matrix.
 }
   \item{name}{
-The region names. if NULL, it is assigned \code{1:length(x)}.
+Region names. if NULL, it is assigned \code{seq_along(x)}.
 }
   \item{dendrogram}{
-Logical. if TRUE, draw an echelon dendrogram.
+Logical. if TRUE, draws an echelon dendrogram.
 }
   \item{main}{
-Related to dendrogram drawing. An overall title for the dendrogram.
+Related to dendrogram drawing. The main title for the dendrogram.
 }
   \item{ylab}{
-Related to dendrogram drawing. A title for the y axis.
+Related to dendrogram drawing. The title for the y-axis.
 }
   \item{yaxes}{
-Related to dendrogram drawing. Logical. if TRUE, draw the y axis.
+Related to dendrogram drawing. Logical. if TRUE, draws the y-axis.
 }
   \item{ylim}{
-Related to dendrogram drawing. A scale of y axis given by \code{c(min, max)}.
+Related to dendrogram drawing. If not specified, the y-axis scale is set to \code{c(min, max)}.
 }
   \item{xaxes}{
-Related to dendrogram drawing. Logical. if TRUE, draw the x axis.
+Related to dendrogram drawing. Logical. if TRUE, draws the x-axis.
 }
   \item{xdper}{
-Related to dendrogram drawing. A display percentage of x axis. The full display percentage is given in \emph{[0, 1]}.
+Related to dendrogram drawing. The percentage of the x-axis to display, specified in \emph{[0, 1]}.
 }
   \item{dmai}{
-Related to dendrogram drawing. A numerical vector of the form c(bottom, left, top, right) which gives the margin size specified in inches. Default is set to \code{c(0.4, 0.8, 0.3, 0.01)}.
+Related to dendrogram drawing. A numeric vector of the form \code{c(bottom, left, top, right)} specifying margin sizes in inches. Default is \code{c(0.4, 0.8, 0.3, 0.01)}.
 }
 \item{col}{
-Related to dendrogram drawing. A line color of the dendrogram.
+Related to dendrogram drawing. The line color of the dendrogram.
 }
   \item{lwd}{
-Related to dendrogram drawing. A line width of the dendrogram.
+Related to dendrogram drawing. The line width of the dendrogram.
 }
   \item{symbols}{
-Related to dendrogram drawing. Either an integer specifying a symbol or a single character. If integer, it is synonymous with \code{\link{pch}} in \code{\link{par}}.
+Related to dendrogram drawing. An integer specifying a symbol or a single character. If integer, it corresponds to \code{\link{pch}} in \code{\link{par}}.
 }
   \item{cex.symbols}{
-Related to dendrogram drawing. A magnification to be used for the plotting symbols.
+Related to dendrogram drawing. A magnification factor for the plotting symbols.
 }
   \item{col.symbols}{
-Related to dendrogram drawing. A color to be used for the plotting symbols.
+Related to dendrogram drawing. The color for the plotting symbols.
 }
   \item{ens}{
 Related to dendrogram drawing. Logical. if TRUE, draw the labels of echelon numbers.
 }
   \item{adj.ens}{
-Related to dendrogram drawing. Adjustment of the labels of the echelon numbers.(see the help for \code{\link{text}}("adj")).
+Related to dendrogram drawing. Adjusts the position of echelon number labels (see \code{\link{text}} for 'adj').
 }
   \item{cex.ens}{
-Related to dendrogram drawing. A magnification to be used for the labels of echelon numbers.
+Related to dendrogram drawing. A magnification factor for the echelon number labels.
 }
   \item{col.ens}{
-Related to dendrogram drawing. A color to be used for the labels of echelon numbers.
+Related to dendrogram drawing. The color for the echelon number labels.
 }
   \item{profiles}{
-Logical. if TRUE, return the result of echelon profiles. (See [2] for the details of echelon profiles)
+Logical. If TRUE, returns the echelon profiles result (see [2] for details).
+}
+  \item{nb.check}{
+Logical. if TRUE, checks for errors in the neighbor information data.
 }
 }
 \value{
-The function \code{echelon} returns an object of class \code{echelon}.
-An object of class \code{echelon} contains the following components:
-\item{Table}{Summary of each echelon.}
-\item{Echelons}{Regions that composes each echelon.}
+The \code{echelon} function returns an object of class \code{echelon}, which contains the following components: \item{Table}{A summary of each echelon.} \item{Echelons}{The regions that make up each echelon.}
 %% ...
 }
 \references{
@@ -97,9 +97,9 @@ An object of class \code{echelon} contains the following components:
 Fumio Ishioka
 }
 \note{
-If there are \code{NA} in \code{x}, then that is set the minimum value of \code{x}.
+Any \code{NA} values in \code{x} are replaced with the minimum value of \code{x}.
 
-\code{Sf::st_read} and \code{spdep::poly2nb} are useful for creating the object specified in the argument \code{nb}.
+The functions \code{Sf::st_read} and \code{spdep::poly2nb} are helpful for creating the object specified in the \code{nb} argument.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
