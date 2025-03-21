@@ -65,8 +65,8 @@ echepoi <-
   eg <- sum(ex)
 
   if(!identical(all.equal(cg, eg), TRUE)) warning("sum(cas) != sum(ex) \n")
-  cz <- apply(array(cas[reg_data], c(nrow(reg_data), ncol(reg_data))), 1, sum, na.rm = TRUE)
-  ez <- apply(array(ex[reg_data], c(nrow(reg_data), ncol(reg_data))), 1, sum, na.rm = TRUE)
+  cz <- rowSums(array(cas[reg_data], c(nrow(reg_data), ncol(reg_data))), na.rm = TRUE)
+  ez <- rowSums(array(ex[reg_data], c(nrow(reg_data), ncol(reg_data))), na.rm = TRUE)
 
   term1 <- cz*log(cz/ez)
   term1[is.nan(term1)] <- 0
@@ -104,6 +104,7 @@ echepoi <-
     monte_lost <- which(sim_lambda < 0)
     if(length(monte_lost) != 0) sim_lambda <- sim_lambda[-monte_lost]
     p_rank <- (n.sim + 1 - length(monte_lost)) - findInterval(cluster_log.lambda, sort(sim_lambda))
+    cat("\n\n")
   }
   else{
     n.sim <- 0
@@ -231,7 +232,7 @@ echepoi <-
     }
     if(cluster.info) cat("----------------------------------------------\n")
 
-    if(nrow(cluster_reg) >5){
+    if(nrow(cluster_reg) > 5){
       if(cluster.info) cat("Display only the top 5 clusters. See object 'clusters' for more details\n\n")
       for(i in 6:nrow(cluster_reg)){
         secondC <- NULL

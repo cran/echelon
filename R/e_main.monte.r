@@ -402,8 +402,8 @@ e.main.monte <- function(x, rin, K, Kmin, par1, par2, type){
       if(type == 11 || type == 12){
         cg <- sum(cas)
         eg <- sum(ex)
-        cz <- apply(array(cas[reg_data], dim(reg_data)), 1, sum, na.rm = TRUE)
-        ez <- apply(array(ex[reg_data], dim(reg_data)), 1, sum, na.rm = TRUE)
+        cz <- rowSums(array(cas[reg_data], dim(reg_data)), na.rm = TRUE)
+        ez <- rowSums(array(ex[reg_data], dim(reg_data)), na.rm = TRUE)
 
         if(type == 11) temp <- which(cz > ez)
         else if(type == 12) temp <- which(cz < ez)
@@ -424,8 +424,8 @@ e.main.monte <- function(x, rin, K, Kmin, par1, par2, type){
       if(type == 21 || type == 22){
         casg <- sum(cas)
         ctlg <- sum(ctl)
-        casz <- apply(array(cas[reg_data], dim(reg_data)), 1, sum, na.rm = TRUE)
-        ctlz <- apply(array(ctl[reg_data], dim(reg_data)), 1, sum, na.rm = TRUE)
+        casz <- rowSums(array(cas[reg_data], dim(reg_data)), na.rm = TRUE)
+        ctlz <- rowSums(array(ctl[reg_data], dim(reg_data)), na.rm = TRUE)
 
         if(type == 21) temp <- which(casz/(casz + ctlz) > casg/(casg + ctlg))
         else if(type == 22) temp <- which(casz/(casz + ctlz) < casg/(casg + ctlg))

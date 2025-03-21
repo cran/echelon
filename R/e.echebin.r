@@ -51,8 +51,8 @@ echebin <-
   ctlg <- sum(ctl)
   popg <- casg + ctlg
 
-  casz <- apply(array(cas[reg_data], c(nrow(reg_data), ncol(reg_data))), 1, sum, na.rm = TRUE)
-  ctlz <- apply(array(ctl[reg_data], c(nrow(reg_data), ncol(reg_data))), 1, sum, na.rm = TRUE)
+  casz <- rowSums(array(cas[reg_data], c(nrow(reg_data), ncol(reg_data))), na.rm = TRUE)
+  ctlz <- rowSums(array(ctl[reg_data], c(nrow(reg_data), ncol(reg_data))), na.rm = TRUE)
   popz <- casz + ctlz
 
   term1 <- casz*log(casz/popz)
@@ -97,6 +97,7 @@ echebin <-
     monte_lost <- which(sim_lambda < 0)
     if(length(monte_lost) != 0) sim_lambda <- sim_lambda[-monte_lost]
     p_rank <- (n.sim + 1 - length(monte_lost)) - findInterval(cluster_log.lambda, sort(sim_lambda))
+    cat("\n\n")
   }
 	else{
     n.sim <- 0
@@ -222,7 +223,7 @@ echebin <-
     }
     if(cluster.info) cat("----------------------------------------------\n")
 
-    if(nrow(cluster_reg) >5){
+    if(nrow(cluster_reg) > 5){
       if(cluster.info) cat("Display only the top 5 clusters. See object 'clusters' for more details\n\n")
       for(i in 6:nrow(cluster_reg)){
         secondC <- NULL

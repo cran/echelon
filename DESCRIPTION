@@ -1,7 +1,7 @@
 Package: echelon
 Title: The Echelon Analysis and the Detection of Spatial Clusters using
         Echelon Scan Method
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: person(given = "Fumio",
                   family = "Ishioka",
                   role = c("aut", "cre"),
@@ -15,8 +15,8 @@ RoxygenNote: 7.3.2
 LinkingTo: Rcpp
 Imports: Rcpp
 NeedsCompilation: yes
-Packaged: 2025-03-03 13:12:40 UTC; fishioka
+Packaged: 2025-03-21 03:21:54 UTC; fishioka
 Author: Fumio Ishioka [aut, cre]
 Maintainer: Fumio Ishioka <fishioka@okayama-u.ac.jp>
 Repository: CRAN
-Date/Publication: 2025-03-03 13:30:06 UTC
+Date/Publication: 2025-03-21 03:50:01 UTC
